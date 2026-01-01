@@ -19,7 +19,7 @@ const cardVariants = {
 
 const Projects = () => {
   return (
-    <section id="project" className="pt-20 relative overflow-hidden">
+    <section id="project" className="pt-20 relative overflow-hidden mb-6">
       <Title
         Title="Our Works"
         Desc="Here are some projects I’ve built using React, Tailwind, and modern frontend tech"
@@ -114,3 +114,4 @@ const Projects = () => {
 }
 
 export default Projects
+
