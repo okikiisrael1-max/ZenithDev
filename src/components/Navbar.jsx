@@ -1,31 +1,128 @@
 import React, { useState } from 'react'
-import { assets } from '../assets/assets'
+import { motion, AnimatePresence } from 'framer-motion'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const Navbar = () => {
-    const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false)
+
+  const navLinks = [
+    { name: 'Home', href: '#' },
+    { name: 'About', href: '#about' },
+    { name: 'Service', href: '#service' },
+    { name: 'Project', href: '#project' },
+    { name: 'Contact', href: '#contact' },
+  ]
+
   return (
-    <div className='z-60 flex justify-between items-center px-[10%] py-2.5 bg-gray-900 fixed top-0 left-0 w-full'>
-      <h1 className='text-2xl font-black text-white'>Zenith<span className='text-transparent bg-linear-to-r from-blue-600 to-purple-950 bg-clip-text'>Dev</span></h1>
-    <ul className='flex gap-5 max-sm:hidden'>
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#service">Service</a></li>
-        <li><a href="#project">Project</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#">
-        <button className='flex max-sm:hidden justify-center items-center w-40 h-10 cursor-pointer text-sm bg-linear-to-br from-blue-800 to-purple-700 rounded-full'>Connect </button>
-    </a>
-    <span onClick={()=> setOpenMenu(!openMenu)} className='flex p-1.5 text-2xl sm:hidden'><i class="bi bi-list"></i></span>
-    <ul className={`sm-hidden flex flex-col gap-2.5 fixed top-0 right-0 bottom-0 ${openMenu ?  ' w-full' : 'w-0 translate-x-9 scale-0'} transition-all h-screen bg-linear-60 p-5 pt-13 z-50 to-gray-900 from-black text-gray-400`}>
-    <span onClick={()=> setOpenMenu(!openMenu)} className='absolute right-2.5 text-2xl top-2.5 p-2'><i class="bi bi-x-lg"></i></span>
-        <li className='hover:-translate-x-2.5 transition-all border-b border-gray-500  py-2.5'><a className='p-2.5 font-medium' onClick={()=> setOpenMenu(!openMenu)} href="#">Home</a></li>
-        <li className='hover:-translate-x-2.5 transition-all border-b border-gray-500  py-2.5'><a className='p-2.5 font-medium' onClick={()=> setOpenMenu(!openMenu)} href="#about">About</a></li>
-        <li className='hover:-translate-x-2.5 transition-all border-b border-gray-500  py-2.5'><a className='p-2.5 font-medium' onClick={()=> setOpenMenu(!openMenu)} href="#project">Project</a></li>
-        <li className='hover:-translate-x-2.5 transition-all border-b border-gray-500  py-2.5'><a className='p-2.5 font-medium' onClick={()=> setOpenMenu(!openMenu)} href="#service">Service</a></li>
-        <li className='hover:-translate-x-2.5 transition-all border-b border-gray-500  py-2.5'><a className='p-2.5 font-medium' onClick={()=> setOpenMenu(!openMenu)} href="#contact">Contact</a></li>
-    </ul>
-  </div>
+    <>
+      {/* Navbar */}
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="
+          fixed top-0 left-0 w-full z-60
+          backdrop-blur-xl bg-gray-900/70
+          border-b border-white/10
+        "
+      >
+        <div className="flex justify-between items-center px-[10%] py-3">
+          
+          {/* Logo */}
+          <h1 className="text-2xl font-black text-white tracking-wide">
+            Zenith
+            <span className="text-transparent bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text drop-shadow-[0_0_10px_rgba(139,92,246,0.7)]">
+              Dev
+            </span>
+          </h1>
+
+          {/* Desktop Menu */}
+          <ul className="hidden sm:flex gap-8 text-sm text-gray-300">
+            {navLinks.map((link, i) => (
+              <li key={i} className="group relative">
+                <a href={link.href} className="transition hover:text-white">
+                  {link.name}
+                </a>
+                {/* Neon underline */}
+                <span className="
+                  absolute -bottom-1 left-0 w-0 h-0.5
+                  bg-linear-to-r from-purple-500 to-blue-500
+                  transition-all duration-300
+                  group-hover:w-full
+                " />
+              </li>
+            ))}
+          </ul>
+
+          {/* Desktop Button */}
+          <a href="http://wa.me/09162629299" target='_blank' className="hidden sm:block">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="
+                w-36 h-10 rounded-full text-sm text-white
+                bg-linear-to-br from-blue-600 to-purple-600
+                shadow-[0_0_25px_rgba(139,92,246,0.5)]
+                hover:shadow-[0_0_40px_rgba(139,92,246,0.8)]
+                transition
+              "
+            >
+              Whatsapp
+            </motion.button>
+          </a>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setOpenMenu(!openMenu)}
+            className="sm:hidden text-2xl text-white"
+          >
+            <i className="bi bi-list"></i>
+          </button>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {openMenu && (
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.4 }}
+            className="
+              fixed inset-0 z-50
+              bg-black/90 backdrop-blur-xl
+              flex flex-col gap-6 p-6 pt-16
+            "
+          >
+            <button
+              onClick={() => setOpenMenu(false)}
+              className="absolute top-4 right-4 text-2xl text-white"
+            >
+              <i className="bi bi-x-lg"></i>
+            </button>
+
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.href}
+                onClick={() => setOpenMenu(false)}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.08 }}
+                className="
+                  text-lg font-medium text-gray-300
+                  hover:text-white
+                  border-b border-white/10 pb-3
+                "
+              >
+                {link.name}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 
