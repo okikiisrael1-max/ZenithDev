@@ -2,19 +2,19 @@ import React from 'react'
 import Title from './Title'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { assets } from '../assets/assets';
-import FrontendSkills from './FrontendSkills';
+import Skills from './Skills';
 import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <div id='about' className="relative z-10">
+    <div id='about' className="relative z-10 py-5">
       <Title Title={'About Me'} Desc={'A Little About Me'} />
 
       <div className='flex flex-col sm:flex-row px-[10%] gap-8 mt-10'>
         
         {/* Image */}
         <motion.img 
-          className='rounded-lg object-cover z-10 w-62.5 max-h-80 flex mx-auto sm:w-120 grayscale-75 hover:grayscale-0 transition duration-500 shadow-xl'
+          className='rounded-lg object-cover z-50 w-full max-h-80 flex mx-auto hover:translate-y-2.5 transition duration-500 shadow-xl'
           src={assets.hero} 
           alt="About Image"
           initial={{ opacity: 0, x: -50, scale: 0.95 }}
@@ -43,7 +43,6 @@ const About = () => {
               problem-solving, clean code, and delivering results
             </span> that make a real impact for clients and businesses alike.
           </p>
-
           {/* Features List */}
           <motion.div 
             className='mt-4 flex flex-col gap-3'
@@ -74,7 +73,10 @@ const About = () => {
         transition={{ duration: 1, delay: 0.8 }}
         className='mt-10'
       >
-        <FrontendSkills/>
+        <Skills/>
+        {/* Experience & Learning */}
+
+
       </motion.div>
     </div>
   )

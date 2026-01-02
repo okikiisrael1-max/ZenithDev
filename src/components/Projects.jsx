@@ -19,7 +19,7 @@ const cardVariants = {
 
 const Projects = () => {
   return (
-    <section id="project" className="pt-20 relative overflow-hidden mb-6">
+    <section id="project" className="pt-20 relative overflow-hidden">
       <Title
         Title="Our Works"
         Desc="Here are some projects I’ve built using React, Tailwind, and modern frontend tech"
@@ -65,6 +65,17 @@ const Projects = () => {
 
             {/* Content */}
             <div className="p-4 flex flex-col gap-2">
+              <div className="flex flex-wrap gap-2 mt-3">
+            {project.skill.map((skill, i) => (
+              <span
+                key={i}
+                className="text-sm bg-linear-180 bg-opacity-10 from-blue-600 to-purple-600 px-3 py-1 rounded-full"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+
               <h2 className="text-lg font-semibold text-white">
                 {project.title}
               </h2>
@@ -114,4 +125,3 @@ const Projects = () => {
 }
 
 export default Projects
-

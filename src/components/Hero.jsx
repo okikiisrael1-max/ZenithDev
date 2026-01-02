@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <div className='flex px-[10%] py-5 flex-col justify-center items-center gap-5 min-h-screen w-full relative'>
+    <div className='flex pt-20 px-[10%] py-5 flex-col justify-center items-center gap-5 min-h-screen w-full relative'>
       
       {/* Typing Animation */}
       <motion.div
@@ -31,7 +31,7 @@ const Hero = () => {
           speed={60}
           deletionSpeed={40}
           repeat={Infinity}
-          className='py-2.5 text-2xl font-bold md:text-4xl bg-linear-90 from-10% from-purple-600 to-blue-600 text-transparent bg-clip-text'
+          className='py-2.5 text-2xl font-black md:text-4xl bg-linear-90 from-10% from-white to-gray-600 text-transparent bg-clip-text'
         />
       </motion.div>
 
@@ -60,7 +60,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         I’m{' '}
-        <span className='bg-linear-120 from-blue-600 to-purple-600 pl-1 text-transparent bg-clip-text'>
+        <span className='bg-linear-120 from-blue-600 to-purple-600 font-black pl-1 text-transparent bg-clip-text'>
           Onakomaya Israel
         </span>
       </motion.h1>

@@ -67,7 +67,7 @@ const fadeUp = {
 
 export default function Services() {
   return (
-    <section className="relative py-24 bg-[#0b0f1a] overflow-hidden">
+    <section id="service" className="relative py-24 bg-[#0b0f1a] overflow-hidden">
       {/* Accent Glows */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-indigo-600/20 blur-3xl rounded-full" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-600/20 blur-3xl rounded-full" />

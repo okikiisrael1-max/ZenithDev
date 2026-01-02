@@ -39,18 +39,21 @@ export const projects = [
         title : "Prescripto",
         desc : "Doctor Appointment Booking",
         image : project_1,
+        skill : ['React', 'Tailwind', 'Framer'] , 
         URL: 'https://prescriptos-ten.vercel.app/'
     },
     {
         title : "Real Estate",
         desc : "House Booking",
         image : project_2,
+        skill : ['React', 'Tailwind', 'CSS'] , 
         URL : 'https://real-estate-hazel-eight.vercel.app/'
     },
     {
         title : "Gym Booking & subscription",
         desc : "Book an appointment with a gym instructor",
         image : project_3,
+        skill : ['React', 'Tailwind', 'Framer'] , 
         URL : 'https://gym-booking-ten.vercel.app/'
     }
 ]
