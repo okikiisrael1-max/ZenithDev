@@ -15,6 +15,7 @@ import project_1 from './project_1.jpg'
 import project_2 from './project_2.jpg'
 import project_3 from './project_3.jpg'
 import project_4 from './project_4.jpg'
+import project_5 from './project_5.jpg'
 
 export const assets = {
     bgImage1,
@@ -42,14 +43,7 @@ export const projects = [
         image : project_1,
         skill : ['React', 'Tailwind', 'Framer'] , 
         URL: 'https://prescriptos-ten.vercel.app/'
-    },
-    {
-        title : "LifeLine Health",
-        desc : "Neolife Product Sales Page",
-        image : project_4,
-        skill : ['React', 'Tailwind', 'Bootstrap'] , 
-        URL: 'https://lifelinehealth.shop'
-    },
+    }, 
     {
         title : "Real Estate",
         desc : "House Booking",
@@ -63,5 +57,19 @@ export const projects = [
         image : project_3,
         skill : ['React', 'Tailwind', 'Framer'] , 
         URL : 'https://gym-booking-ten.vercel.app/'
-    }
+    },
+    {
+        title : "LifeLine Health",
+        desc : "Neolife Product Sales Page",
+        image : project_4,
+        skill : ['React', 'Tailwind', 'Bootstrap'] , 
+        URL: 'https://lifelinehealth.shop'
+    },
+    {
+        title : "Forever",
+        desc : "Outfit Collection Website (E-commerce)",
+        image : project_4,
+        skill : ['React', 'Tailwind', 'React Router'] , 
+        URL: 'https://forever-collections.vercel.app'
+    },
 ]
