@@ -68,7 +68,7 @@ export const projects = [
     {
         title : "Forever",
         desc : "Outfit Collection Website (E-commerce)",
-        image : project_4,
+        image : project_5,
         skill : ['React', 'Tailwind', 'React Router'] , 
         URL: 'https://forever-collections.vercel.app'
     },
